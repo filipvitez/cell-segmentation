@@ -83,7 +83,7 @@ def pred_to_label(pred, cell_min_size, cell_label=1):
     
     cell = (pred == cell_label)
     # fix cells
-    cell = skimage.morphology.remove_small_holes(cell, min_size=cell_min_size)
+    cell = skimage.morphology.remove_small_holes(cell, area_threshold=cell_min_size)
     cell = skimage.morphology.remove_small_objects(cell, min_size=cell_min_size)
     
     # label cells only
